@@ -49,9 +49,11 @@ namespace JPhoneTask
 
         internal void ValidateServiceTag(string serviceTag)
         {
+            // we check service tag must be at least 5 digit in a row
             var pattern = "[0-9]{5}";
             var regex = new Regex(pattern);
 
+            // if doesn't we throw exception because in the task not include extra information about this
             if (!regex.IsMatch(serviceTag))
                 throw new Exception("Invalid service tag, please check the service tag!");
 
